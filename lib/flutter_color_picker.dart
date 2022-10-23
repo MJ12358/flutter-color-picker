@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ColorPickerWidget extends StatefulWidget {
-  const ColorPickerWidget({
+class FlutterColorPicker extends StatefulWidget {
+  const FlutterColorPicker({
     Key? key,
     required this.initialColor,
     required this.onTap,
@@ -11,10 +11,10 @@ class ColorPickerWidget extends StatefulWidget {
   final void Function(int) onTap;
 
   @override
-  State<ColorPickerWidget> createState() => _ColorPickerWidgetState();
+  State<FlutterColorPicker> createState() => _FlutterColorPickerState();
 }
 
-class _ColorPickerWidgetState extends State<ColorPickerWidget> {
+class _FlutterColorPickerState extends State<FlutterColorPicker> {
   late int selectedColor;
 
   static List<Color> get _colors => Colors.primaries.map((MaterialColor color) {
