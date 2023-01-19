@@ -1,13 +1,10 @@
-name: flutter_color_picker
-description: A new Flutter package project.
-version: 0.0.1
-homepage:
-
-# Prevent accidental publishing to pub.dev.
-publish_to: 'none'
+name: flutter_color_pickr
+description: A simple color picker for flutter.
+version: 1.0.0
+repository: https://github.com/mj12358/flutter-color-picker
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: ">=2.18.2 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

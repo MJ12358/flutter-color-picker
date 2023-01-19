@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
 
 class FlutterColorPicker extends StatefulWidget {
-  const FlutterColorPicker({
+  FlutterColorPicker({
     Key? key,
-    required this.initialColor,
     required this.onTap,
-  }) : super(key: key);
+    this.initialColor,
+    this.title = 'Choose Color',
+    List<Color>? colors,
+  }) : super(key: key) {
+    this.colors = colors ??
+        Colors.primaries.map((MaterialColor color) {
+          return color.shade500;
+        }).toList();
+  }
 
-  final int initialColor;
-  final void Function(int) onTap;
+  final Color? initialColor;
+  final void Function(Color) onTap;
+  final String title;
+  late final List<Color> colors;
 
   @override
   State<FlutterColorPicker> createState() => _FlutterColorPickerState();
 }
 
 class _FlutterColorPickerState extends State<FlutterColorPicker> {
-  late int selectedColor;
-
-  static List<Color> get _colors => Colors.primaries.map((MaterialColor color) {
-        return color.shade500;
-      }).toList();
+  late Color? selectedColor;
 
   @override
   void initState() {
@@ -31,9 +36,9 @@ class _FlutterColorPickerState extends State<FlutterColorPicker> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Text('Choose Color'),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(widget.title),
         ),
         Expanded(
           child: Container(
@@ -44,16 +49,16 @@ class _FlutterColorPickerState extends State<FlutterColorPicker> {
                 crossAxisSpacing: 10.0,
                 mainAxisSpacing: 10.0,
               ),
-              itemCount: _colors.length,
+              itemCount: widget.colors.length,
               itemBuilder: (BuildContext context, int index) {
                 return _Dot(
-                  color: _colors[index],
-                  selectedColor: Color(selectedColor),
-                  onTap: (int value) {
+                  color: widget.colors[index],
+                  isSelected: widget.colors[index] == selectedColor,
+                  onTap: (Color color) {
                     setState(() {
-                      selectedColor = value;
+                      selectedColor = color;
                     });
-                    widget.onTap(value);
+                    widget.onTap(color);
                   },
                 );
               },
@@ -69,18 +74,18 @@ class _Dot extends StatelessWidget {
   const _Dot({
     Key? key,
     required this.color,
-    required this.selectedColor,
+    required this.isSelected,
     required this.onTap,
   }) : super(key: key);
 
   final Color color;
-  final Color selectedColor;
-  final void Function(int) onTap;
+  final bool isSelected;
+  final void Function(Color) onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onTap(color.value),
+      onTap: () => onTap(color),
       child: Container(
         height: 50.0,
         width: 50.0,
@@ -90,7 +95,7 @@ class _Dot extends StatelessWidget {
           border: Border.all(),
         ),
         child: Center(
-          child: color == selectedColor
+          child: isSelected
               ? const Icon(
                   Icons.check,
                   color: Colors.white,
