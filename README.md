@@ -12,6 +12,4 @@ flutter_color_pickr: ^1.0.0
 
 ```dart
 import 'package:flutter_color_pickr/flutter_color_pickr.dart';
-
-
 ```
