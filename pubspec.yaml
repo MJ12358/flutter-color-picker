@@ -1,6 +1,6 @@
 name: flutter_color_pickr
-description: A simple color picker for flutter.
-version: 1.0.0
+description: A simple color picker for flutter utilizing material designs primary colors.
+version: 1.0.1
 repository: https://github.com/mj12358/flutter-color-picker
 
 environment:
@@ -12,6 +12,6 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
+  dart_lintz: ^1.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1

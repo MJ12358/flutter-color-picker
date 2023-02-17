@@ -5,7 +5,7 @@
 Add this to your `pubspec.yaml` under `dependences`
 
 ```yaml
-flutter_color_pickr: ^1.0.0
+flutter_color_pickr: ^1.0.1
 ```
 
 ## Usage

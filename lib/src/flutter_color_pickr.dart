@@ -12,9 +12,18 @@ class FlutterColorPickr extends StatefulWidget {
         Colors.primaries.map((MaterialColor color) => color.shade500).toList();
   }
 
+  /// Callback when a color is tapped
   final void Function(Color) onTap;
+
+  /// A title shown above the picker
   final String title;
+
+  /// The initial color for the picker
   final Color? initialColor;
+
+  /// A list of Colors to display
+  ///
+  /// Defaults to `Colors.primaries`
   late final List<Color> colors;
 
   @override
@@ -22,7 +31,7 @@ class FlutterColorPickr extends StatefulWidget {
 }
 
 class _FlutterColorPickrState extends State<FlutterColorPickr> {
-  late Color? selectedColor;
+  Color? selectedColor;
 
   @override
   void initState() {

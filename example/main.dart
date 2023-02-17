@@ -9,7 +9,7 @@ class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterColorPickr(
-      onTap: (Color value) => _onTap(value),
+      onTap: _onTap,
     );
   }
 }
