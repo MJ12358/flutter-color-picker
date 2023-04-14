@@ -1,15 +1,7 @@
 # Flutter Color Picker
 
-## Getting started
+## Discontinued
 
-Add this to your `pubspec.yaml` under `dependences`
+- This package has been discontinued in favor of combining all my widgets into a single package for easier maintenance.
 
-```yaml
-flutter_color_pickr: ^1.0.1
-```
-
-## Usage
-
-```dart
-import 'package:flutter_color_pickr/flutter_color_pickr.dart';
-```
+- Please see [flutter_widgetz](https://pub.dev/packages/flutter_widgetz) for further updates.

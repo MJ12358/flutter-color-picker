@@ -1,6 +1,6 @@
 name: flutter_color_pickr
 description: A simple color picker for flutter utilizing material designs primary colors.
-version: 1.0.1
+version: 1.0.2
 repository: https://github.com/mj12358/flutter-color-picker
 
 environment:
